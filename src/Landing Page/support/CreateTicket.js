@@ -1,0 +1,9 @@
+import React from 'react'
+
+const CreateTicket = () => {
+  return (
+    <h1>Create Ticket</h1>
+  )
+}
+
+export default CreateTicket
