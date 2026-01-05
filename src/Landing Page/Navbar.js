@@ -1,12 +1,21 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg border-bottom" style={{ backgroundColor: "#FFF" }}>
+    <nav
+      className="navbar navbar-expand-lg border-bottom"
+      style={{ backgroundColor: "#FFF" }}
+    >
       <div className="container p-2">
-        <a className="navbar-brand" href="#">
-          <img src="media/Images/logo.svg" alt="Logo" style={{ width: "25%" }} />
-        </a>
+        <Link className="navbar-brand" to='/'>
+          <img
+            src="media/Images/logo.svg"
+            alt="Logo"
+            style={{ width: "25%" }}
+          />
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -23,19 +32,29 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" href="#">Signup</a>
+              <Link className="nav-link active" to="/signup">
+                Signup
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="#">About</a>
+              <Link className="nav-link active" to="/about">
+                About
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="#">Product</a>
+              <Link className="nav-link active" to="/product">
+                Product
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="#">Pricing</a>
+              <Link className="nav-link active" to="/pricing">
+                Pricing
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="#">Support</a>
+              <Link className="nav-link active" to="/support">
+                Support
+              </Link>
             </li>
           </ul>
         </div>
