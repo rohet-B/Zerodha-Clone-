@@ -1,3 +1,6 @@
+// Adding custom css
+import './index.css'
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Homepage from './Landing Page/home/Homepage';
