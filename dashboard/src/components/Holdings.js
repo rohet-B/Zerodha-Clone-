@@ -1,9 +1,23 @@
 import React from "react";
+// import { holdings } from "../data/data";
+// holdings → an array of stock objects coming from data.js
 
+// Commenting the 2nd line of code since we are adding database
+import { useState, useEffect } from "react";
+import axios from 'axios';
 const Holdings = () => {
+  const [allHoldings, setAllHoldings] = useState([]);
+useEffect(()=>{
+  // since project isn't deployed we give this link once project is deployed given another link.
+  axios.get("http://localhost:3000/allHoldings")
+  .then((res)=>{
+    console.log(res.data)
+    setAllHoldings(res.data);
+  })
+},[])
   return (
     <>
-      <h3 className="title">Holdings (13)</h3>
+      <h3 className="title">Holdings ({allHoldings.length})</h3>
 
       <div className="order-table">
         <table>
@@ -15,8 +29,32 @@ const Holdings = () => {
             <th>Cur. val</th>
             <th>P&L</th>
             <th>Net chg.</th>
-            <th>Day chg.</th>
           </tr>
+          {allHoldings.map((stock,index)=>{
+            // stock is ONE object from the holdings array.
+            // What this does:
+            // Loops through each stock in holdings
+            // Creates one table row per stock
+            const curValue = stock.price * stock.qty;
+            const isProfit = curValue-stock.avg*stock.qty>=0.0;
+            const profClass = isProfit ? "profit" : "loss";
+            const dayClass = stock.isLoss ? "loss" : "profit";
+            
+            return (
+            <tr key={index}>
+               <td>{stock.name}</td>
+                <td>{stock.qty}</td>
+                <td>{stock.avg.toFixed(2)}</td>
+                <td>{stock.price.toFixed(2)}</td>
+                <td className={profClass}>
+                  {(curValue - stock.avg * stock.qty).toFixed(2)}
+                </td>
+                <td className={dayClass}>{stock.net}</td>
+                <td className={dayClass}>{stock.day}</td>
+          </tr>
+            )
+          })}
+
         </table>
       </div>
 
