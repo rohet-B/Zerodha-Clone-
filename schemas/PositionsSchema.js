@@ -5,7 +5,7 @@ const PositionsSchema = new Schema({
     name: String,
     qty:Number,
     avg: Number,
-    prie: Number,
+    price: Number,
     net:String,
     day:String,
     isLoss:Boolean,
