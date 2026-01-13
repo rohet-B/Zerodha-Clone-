@@ -233,3 +233,14 @@ https://github.com/apna-college/zerodha-clone [Branch Wise Commits]
 6. Now run `frontend` & `backend` in 2 different terminals.
 
 ### 17. Now How to implement Authorization & Authentication can be learn from this blog post. [MERN Security](https://www.freecodecamp.org/news/how-to-secure-your-mern-stack-application/)
+
+### 18. Deployment platforms:
+1. Render
+2. Netlify
+3. Vercel
+``` 
+Note: If a project has three parts—frontend, backend, and dashboard—then each part must be deployed separately on different servers.
+```
+---
+The End 
+:) 
